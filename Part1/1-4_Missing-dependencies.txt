@@ -1,0 +1,6 @@
+docker run -d -it --name hsPage ubuntu
+docker exec hsPage apt-get update
+docker exec hsPage apt-get install -y curl wget
+
+docker attach hsPage
+sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
